@@ -35,7 +35,7 @@ function renderContent(data) {
 
 async function tryLoadContent() {
   try {
-    const res = await fetch('/api/content', { credentials: 'same-origin' });
+    const res = await fetch('/api/content', { credentials: 'same-origin', cache: 'no-store' });
     if (!res.ok) return false;
     const data = await res.json();
     renderContent(data);
