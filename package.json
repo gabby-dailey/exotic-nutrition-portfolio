@@ -1,0 +1,9 @@
+{
+  "name": "exotic-nutrition-ep3-review",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Creative review page for Exotic Nutrition Episode 3 (Back to the Wild)",
+  "engines": {
+    "node": ">=18"
+  }
+}

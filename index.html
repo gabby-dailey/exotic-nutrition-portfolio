@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Exotic Nutrition — Episode 3 Creative Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lock-screen" class="lock-screen">
+  <div class="lock-card">
+    <p class="wordmark">AdVenture Media</p>
+    <p class="eyebrow">Exotic Nutrition &times; AdVenture Media</p>
+    <h1 class="lock-title">Creative Review</h1>
+    <p class="lock-sub">This page contains an unreleased creative. Enter the access code to continue.</p>
+    <form id="lock-form" autocomplete="off">
+      <input type="password" id="access-code" name="access-code" placeholder="Access code" autocomplete="off" />
+      <button type="submit" class="btn-primary">Enter</button>
+    </form>
+    <p id="lock-error" class="lock-error" hidden>That code didn't work — try again.</p>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main" class="main" hidden>
+
+  <header class="site-header-dark">
+    <span class="wordmark wordmark-sm">AdVenture Media</span>
+    <span class="header-meta-dark">Exotic Nutrition Podcast &middot; Prepared by AdVenture Media Group</span>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow eyebrow-center">Episode 03 &middot; Now Ready for Review</p>
+    <h1 class="hero-title">Back to the Wild</h1>
+    <p class="hero-sub">Guest starring a rescued opossum</p>
+
+    <div class="curtain-stage" id="stage">
+      <div class="video-wrap">
+        <div class="video-placeholder" id="video-placeholder">
+          <p>Video will appear here once it's uploaded.</p>
+        </div>
+        <div class="video-frame" id="video-frame" hidden></div>
+      </div>
+      <div class="curtain curtain-left" id="curtain-left"></div>
+      <div class="curtain curtain-right" id="curtain-right"></div>
+      <button class="reveal-btn" id="reveal-btn" type="button">Pull Back the Curtain</button>
+    </div>
+
+    <p class="hero-caption">45 seconds &middot; Landscape &middot; Unlisted on YouTube</p>
+  </section>
+
+  <section class="breakdown">
+    <p class="eyebrow">The Breakdown</p>
+    <h2 class="section-title">What We Were Going For</h2>
+
+    <div class="card-grid">
+
+      <div class="content-card">
+        <div class="card-number-row"><span class="card-number">01</span></div>
+        <h3 class="card-title">The Guest</h3>
+        <p class="card-guest-name" id="ep-guest">A Rescued Opossum</p>
+        <p id="ep-personality"></p>
+      </div>
+
+      <div class="content-card">
+        <div class="card-number-row"><span class="card-number">02</span></div>
+        <h3 class="card-title">The Premise</h3>
+        <p id="ep-premise"></p>
+      </div>
+
+      <div class="content-card">
+        <div class="card-number-row"><span class="card-number">03</span></div>
+        <h3 class="card-title">The Comedic Moment</h3>
+        <p id="ep-moment"></p>
+      </div>
+
+      <div class="content-card">
+        <div class="card-number-row"><span class="card-number">04</span></div>
+        <h3 class="card-title">Products &amp; CTA</h3>
+        <ul class="card-bullets" id="ep-products"></ul>
+        <p class="card-cta" id="ep-cta"></p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="feedback">
+    <p class="eyebrow">Your Review</p>
+    <h2 class="section-title section-title-dark">What Do You Think?</h2>
+    <p class="feedback-sub">Leave notes for the team, or approve the creative as-is. Either action lets us know right away.</p>
+
+    <div class="feedback-grid">
+
+      <div class="feedback-panel" id="notes-panel">
+        <h3 class="panel-title">Feedback Notes</h3>
+        <form id="notes-form">
+          <textarea id="notes-text" rows="5" placeholder="Anything you'd like changed, or thoughts on the creative..."></textarea>
+          <button type="submit" class="btn-primary">Send Notes</button>
+        </form>
+        <div id="notes-confirm" class="confirm-box" hidden>
+          <p>&#10003; Received — thank you, we'll follow up shortly.</p>
+          <button type="button" id="notes-reset" class="btn-text">Send another note</button>
+        </div>
+      </div>
+
+      <div class="feedback-panel" id="approve-panel">
+        <h3 class="panel-title">Ready to Go?</h3>
+        <p class="panel-sub">If this creative looks good as-is, approve it below.</p>
+        <button type="button" id="approve-btn" class="btn-approve">Approve This Creative</button>
+        <div id="approve-confirm" class="confirm-box" hidden>
+          <p>&#10003; Received — Episode 3 is marked approved.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Prepared by AdVenture Media Group for Exotic Nutrition</p>
+  </footer>
+
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
