@@ -1,7 +1,7 @@
 # Exotic Nutrition — Episode 3 Creative Review
 
 A gated, single-page review site for "Back to the Wild" (Episode 3, the rescued opossum episode).
-Purple theatre curtain reveal → YouTube embed → creative breakdown → feedback/approval widget
+Minimal poster + play reveal → YouTube embed → creative breakdown → feedback/approval widget
 that emails gabrielle@adventureppc.com.
 
 ## One-time setup after deploy

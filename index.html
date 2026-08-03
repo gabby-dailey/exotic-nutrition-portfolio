@@ -37,18 +37,20 @@
   <section class="hero">
     <p class="eyebrow eyebrow-center">Episode 03 &middot; Now Ready for Review</p>
     <h1 class="hero-title">Back to the Wild</h1>
-    <p class="hero-sub">Guest starring a rescued opossum</p>
+    <p class="hero-sub">Scroll down to approve or leave feedback</p>
 
-    <div class="curtain-stage" id="stage">
-      <div class="video-wrap">
+    <div class="video-stage">
+      <div class="video-glow" aria-hidden="true"></div>
+      <div class="video-panel" id="video-panel">
         <div class="video-placeholder" id="video-placeholder">
           <p>Video will appear here once it's uploaded.</p>
         </div>
+        <img class="video-poster" id="video-poster" alt="Episode 3 preview frame" hidden />
+        <button class="play-btn" id="play-btn" type="button" aria-label="Play video" hidden>
+          <svg viewBox="0 0 24 24" width="56" height="56"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+        </button>
         <div class="video-frame" id="video-frame" hidden></div>
       </div>
-      <div class="curtain curtain-left" id="curtain-left"></div>
-      <div class="curtain curtain-right" id="curtain-right"></div>
-      <button class="reveal-btn" id="reveal-btn" type="button">Pull Back the Curtain</button>
     </div>
 
     <p class="hero-caption">45 seconds &middot; Landscape &middot; Unlisted on YouTube</p>

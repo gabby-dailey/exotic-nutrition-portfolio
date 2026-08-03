@@ -6,15 +6,26 @@ const codeInput = document.getElementById('access-code');
 
 function renderContent(data) {
   const placeholder = document.getElementById('video-placeholder');
+  const poster = document.getElementById('video-poster');
+  const playBtn = document.getElementById('play-btn');
   const frame = document.getElementById('video-frame');
 
-  if (data.video && data.video.youtubeId) {
-    frame.innerHTML =
-      `<iframe src="https://www.youtube.com/embed/${data.video.youtubeId}" ` +
-      `title="Exotic Nutrition Episode 3" allow="accelerometer; autoplay; clipboard-write; ` +
-      `encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    frame.hidden = false;
+  const youtubeId = data.video && data.video.youtubeId;
+  if (youtubeId) {
+    poster.src = `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
+    poster.hidden = false;
+    playBtn.hidden = false;
     placeholder.hidden = true;
+
+    playBtn.addEventListener('click', () => {
+      frame.innerHTML =
+        `<iframe src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1" ` +
+        `title="Exotic Nutrition Episode 3" allow="accelerometer; autoplay; clipboard-write; ` +
+        `encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      frame.hidden = false;
+      poster.hidden = true;
+      playBtn.hidden = true;
+    });
   }
 
   const ep = data.episode;
@@ -77,13 +88,6 @@ lockForm.addEventListener('submit', async (e) => {
   lockError.hidden = false;
   codeInput.value = '';
   codeInput.focus();
-});
-
-// Curtain reveal
-const stage = document.getElementById('stage');
-const revealBtn = document.getElementById('reveal-btn');
-revealBtn.addEventListener('click', () => {
-  stage.classList.add('open');
 });
 
 // Feedback notes
