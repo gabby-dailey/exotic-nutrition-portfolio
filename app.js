@@ -4,11 +4,67 @@ const lockForm = document.getElementById('lock-form');
 const lockError = document.getElementById('lock-error');
 const codeInput = document.getElementById('access-code');
 
+let ytPlayer = null;
+let ytPlayerReady = false;
+
+function loadYouTubeApi() {
+  return new Promise((resolve) => {
+    if (window.YT && window.YT.Player) {
+      resolve();
+      return;
+    }
+    const previous = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = () => {
+      if (previous) previous();
+      resolve();
+    };
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+  });
+}
+
+function watchVisibilityForPlayback() {
+  const panel = document.getElementById('video-panel');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!ytPlayerReady || !ytPlayer) return;
+        if (entry.intersectionRatio >= 0.999) {
+          ytPlayer.playVideo();
+        } else {
+          ytPlayer.pauseVideo();
+        }
+      });
+    },
+    { threshold: 1.0 }
+  );
+  observer.observe(panel);
+}
+
+async function startVideo(youtubeId) {
+  await loadYouTubeApi();
+
+  const frame = document.getElementById('video-frame');
+  frame.innerHTML = '<div id="yt-player"></div>';
+  frame.hidden = false;
+
+  ytPlayer = new YT.Player('yt-player', {
+    videoId: youtubeId,
+    playerVars: { autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1 },
+    events: {
+      onReady: () => {
+        ytPlayerReady = true;
+        watchVisibilityForPlayback();
+      },
+    },
+  });
+}
+
 function renderContent(data) {
   const placeholder = document.getElementById('video-placeholder');
   const poster = document.getElementById('video-poster');
   const playBtn = document.getElementById('play-btn');
-  const frame = document.getElementById('video-frame');
 
   const youtubeId = data.video && data.video.youtubeId;
   if (youtubeId) {
@@ -18,18 +74,18 @@ function renderContent(data) {
     placeholder.hidden = true;
 
     playBtn.addEventListener('click', () => {
-      frame.innerHTML =
-        `<iframe src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1" ` +
-        `title="Exotic Nutrition Episode 3" allow="accelerometer; autoplay; clipboard-write; ` +
-        `encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-      frame.hidden = false;
       poster.hidden = true;
       playBtn.hidden = true;
+      startVideo(youtubeId);
     });
   }
 
+  const intro = data.intro;
+  document.getElementById('intro-performance').textContent = intro.performance;
+  document.getElementById('intro-personal').textContent = intro.personal;
+  document.getElementById('intro-watch').textContent = intro.watch;
+
   const ep = data.episode;
-  document.getElementById('ep-guest').textContent = ep.guest;
   document.getElementById('ep-personality').textContent = ep.personality;
   document.getElementById('ep-premise').textContent = ep.premise;
   document.getElementById('ep-moment').textContent = ep.comedicMoment;
@@ -88,48 +144,4 @@ lockForm.addEventListener('submit', async (e) => {
   lockError.hidden = false;
   codeInput.value = '';
   codeInput.focus();
-});
-
-// Feedback notes
-const notesForm = document.getElementById('notes-form');
-const notesText = document.getElementById('notes-text');
-const notesConfirm = document.getElementById('notes-confirm');
-const notesReset = document.getElementById('notes-reset');
-
-notesForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const message = notesText.value.trim();
-  if (!message) return;
-
-  await fetch('/api/feedback', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ type: 'notes', message }),
-  });
-
-  notesForm.hidden = true;
-  notesConfirm.hidden = false;
-});
-
-notesReset.addEventListener('click', () => {
-  notesText.value = '';
-  notesForm.hidden = false;
-  notesConfirm.hidden = true;
-});
-
-// Approval
-const approveBtn = document.getElementById('approve-btn');
-const approveConfirm = document.getElementById('approve-confirm');
-
-approveBtn.addEventListener('click', async () => {
-  approveBtn.disabled = true;
-
-  await fetch('/api/feedback', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ type: 'approved' }),
-  });
-
-  approveBtn.hidden = true;
-  approveConfirm.hidden = false;
 });
