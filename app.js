@@ -84,20 +84,6 @@ function renderContent(data) {
   document.getElementById('intro-performance').textContent = intro.performance;
   document.getElementById('intro-personal').textContent = intro.personal;
   document.getElementById('intro-watch').textContent = intro.watch;
-
-  const ep = data.episode;
-  document.getElementById('ep-personality').textContent = ep.personality;
-  document.getElementById('ep-premise').textContent = ep.premise;
-  document.getElementById('ep-moment').textContent = ep.comedicMoment;
-  document.getElementById('ep-cta').textContent = ep.cta;
-
-  const productList = document.getElementById('ep-products');
-  productList.innerHTML = '';
-  ep.productTieIn.forEach((product) => {
-    const li = document.createElement('li');
-    li.textContent = product;
-    productList.appendChild(li);
-  });
 }
 
 async function tryLoadContent() {

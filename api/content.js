@@ -25,24 +25,5 @@ module.exports = (req, res) => {
       watch:
         'Sit back and watch our latest episode: Back to the Wild, a story of Exotic Nutrition’s Philanthropic Efforts.',
     },
-    episode: {
-      number: 3,
-      title: 'Back to the Wild',
-      guest: 'A Rescued Opossum',
-      timing: 'July / August — Summer',
-      personality:
-        'The eternal optimist. Orphaned, hand-raised in a rehab facility, and temporarily unable to be released — and every single part of that story is, to him, an absolute blessing. He isn’t performing positivity. He genuinely cannot see it any other way.',
-      premise:
-        'The opossum was rehabbed on Exotic Nutrition products — Opossum Complete, nursing sets, the works — and comes on the podcast as a living success story. Stanley keeps waiting for the hard part. It never comes. Every potential low point turns into another reason to be grateful.',
-      comedicMoment:
-        'Stanley’s growing disbelief is the joke — until it cracks him. A quick pan catches him mid-story blowing his nose, hard, like a foghorn. He straightens up fast, tries to get back to host mode: “Casey, make sure you cut that.”',
-      productTieIn: [
-        'Opossum Complete',
-        'Premium Insectivore Diet',
-        'Berries & Bugs',
-        'Nursing Sets',
-      ],
-      cta: 'Summer promo, with a nod to Exotic Nutrition’s nonprofit discount for wildlife rehabilitators.',
-    },
   });
 };
