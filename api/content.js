@@ -2,7 +2,7 @@ const { isAuthenticated } = require('./_auth');
 
 // Swap YOUTUBE_ID once the episode is uploaded to YouTube (unlisted), either by
 // setting the YOUTUBE_ID environment variable in Vercel, or editing the fallback below.
-const YOUTUBE_ID = process.env.YOUTUBE_ID || 'oBGqb1kB-i4';
+const YOUTUBE_ID = process.env.YOUTUBE_ID || 'w7FgiwGtRVU';
 
 module.exports = (req, res) => {
   res.setHeader('Cache-Control', 'no-store, max-age=0');
