@@ -18,9 +18,9 @@ module.exports = [
     intro: {
       performance: null,
       personal:
-        'This one might be the most fun we’ve had with this series yet! This episode’s guest is a hedgehog ‘fitness junkie’ who drops into sit-ups mid-sentence, dressed head to toe in 80s workout gear, then pops back up and picks up the conversation. It’s ridiculous, it’s genuinely funny, and it still lands the point: real energy comes from real food.',
+        'This one might be the most fun we’ve had with this series yet! This episode’s guest is a hedgehog ‘fitness junkie’ who does sit-ups mid-sentence, is dressed head to toe in 80s workout gear, and can’t contain his enthusiasm for Exotic Nutrition’s Hedgehog Complete! It’s ridiculous, it’s genuinely funny, and it still lands the point: real energy comes from real food.',
       watch:
-        'Sit back and watch our latest episode: No Days Off, a lesson in what real energy actually looks like.',
+        'Sit back and watch our latest episode: No Days Off',
     },
   },
   {
