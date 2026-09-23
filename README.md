@@ -1,9 +1,11 @@
 # Exotic Nutrition: Creative Review
 
-A gated, single-page review site for the Exotic Nutrition Podcast video ad series.
+A public, single-page review site for the Exotic Nutrition Podcast video ad series.
 Performance copy up top, then the current episode's video, dark background throughout,
 minimal design. Past episodes live in an archive strip at the bottom; clicking one swaps
 the video and copy above without leaving the page.
+
+Anyone with the link can view this page; there's no password.
 
 ## Adding a new episode
 
@@ -18,22 +20,16 @@ Edit `api/_episodes.js`:
      overlay, full playback control)
 4. Fill in `intro.performance`, `intro.personal`, and `intro.watch` with the real copy for
    that episode. Never fill these with placeholder text; wait for the actual copy.
+   `intro.performance` can be `null` for an episode that hasn't launched yet, since there's
+   no performance data to report; the paragraph hides itself when absent.
 
 ## One-time setup after deploy
 
-Add these in the Vercel project's **Settings > Environment Variables**, then redeploy:
+Add this in the Vercel project's **Settings > Environment Variables** if needed, then redeploy:
 
 | Variable | Required? | What it does |
 |---|---|---|
 | `YOUTUBE_ID_EP3` | No | Overrides Episode 3's YouTube video ID without editing code. |
-| `ACCESS_CODE` | No | Defaults to `amg-exotic-creative`. Set this to rotate the password without redeploying code. |
-| `SESSION_SECRET` | No | Defaults to a fallback string. Set any random value for slightly stronger session tokens. |
-
-## How the gate works
-
-The page always serves the same static shell, but the episode data (including revenue and
-ROAS figures) is only returned by `/api/content` after a correct access code sets a session
-cookie via `/api/login`, so none of that is visible in page source before login.
 
 ## Video playback
 
@@ -50,7 +46,7 @@ any edge scrolls out of view and resumes it once all four edges are back on scre
 
 - `index.html`, `styles.css`, `app.js`: the static page
 - `videos/`: self-hosted episode video files
-- `api/login.js`: validates the access code, sets the session cookie
-- `api/content.js`: returns the episodes array, gated by the session cookie
+- `api/content.js`: returns the episodes array
 - `api/_episodes.js`: the episode data (current plus archive)
-- `api/feedback.js`: unused for now (the approve/feedback section was removed); left in place in case it's wired back up later
+- `api/_auth.js`, `api/feedback.js`: unused leftovers from an earlier password-gated,
+  approve/feedback version of this page; safe to ignore or delete

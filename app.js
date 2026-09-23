@@ -1,8 +1,4 @@
-const lockScreen = document.getElementById('lock-screen');
 const main = document.getElementById('main');
-const lockForm = document.getElementById('lock-form');
-const lockError = document.getElementById('lock-error');
-const codeInput = document.getElementById('access-code');
 
 let ytPlayer = null;
 let currentObserver = null;
@@ -176,48 +172,10 @@ function renderContent(data) {
   renderEpisode(current);
 }
 
-async function tryLoadContent() {
-  try {
-    const res = await fetch('/api/content', { credentials: 'same-origin', cache: 'no-store' });
-    if (!res.ok) return false;
-    const data = await res.json();
-    renderContent(data);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
 async function init() {
-  const authed = await tryLoadContent();
-  if (authed) {
-    lockScreen.hidden = true;
-    main.hidden = false;
-  }
+  const res = await fetch('/api/content', { cache: 'no-store' });
+  const data = await res.json();
+  renderContent(data);
+  main.hidden = false;
 }
 init();
-
-lockForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  lockError.hidden = true;
-  const code = codeInput.value.trim();
-
-  const res = await fetch('/api/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ code }),
-  });
-
-  if (res.ok) {
-    const authed = await tryLoadContent();
-    if (authed) {
-      lockScreen.hidden = true;
-      main.hidden = false;
-      return;
-    }
-  }
-
-  lockError.hidden = false;
-  codeInput.value = '';
-  codeInput.focus();
-});

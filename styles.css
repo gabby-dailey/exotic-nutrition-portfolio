@@ -45,79 +45,16 @@ p { margin: 0; }
   margin-bottom: var(--s3);
 }
 
-.eyebrow-center { text-align: center; }
 
-.btn-primary {
-  background: var(--purple);
-  color: var(--off-white);
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-  padding: 0 var(--s5);
-  height: 44px;
-  border-radius: 0;
-  border: none;
-  cursor: pointer;
-}
-.btn-primary:hover { background: var(--purple-dk); }
-
-.btn-text {
-  background: none;
-  border: none;
-  color: var(--muted-lav);
-  font-family: var(--font-body);
-  font-size: 13px;
-  text-decoration: underline;
-  cursor: pointer;
-  padding: 0;
-  margin-top: var(--s3);
-}
-
-/* ---------- Lock screen ---------- */
-.lock-screen {
-  min-height: 100vh;
-  background: var(--near-black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--s5);
-}
-.lock-card {
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-}
+/* ---------- Header ---------- */
 .wordmark {
   font-family: var(--font-heading);
   font-style: italic;
   font-size: 20px;
   color: var(--off-white);
   letter-spacing: 0.01em;
-  margin-bottom: var(--s8);
 }
-.wordmark-sm { font-size: 16px; margin-bottom: 0; }
-.lock-title { font-size: 40px; color: var(--off-white); margin-bottom: var(--s4); }
-.lock-sub {
-  color: rgba(239,237,231,0.65);
-  font-size: 14px;
-  margin-bottom: var(--s7);
-}
-#lock-form { display: flex; gap: var(--s3); }
-#access-code {
-  flex: 1;
-  background: transparent;
-  border: 1px solid var(--border-dk);
-  color: var(--off-white);
-  font-family: var(--font-body);
-  font-size: 14px;
-  padding: 0 var(--s4);
-  height: 44px;
-}
-#access-code::placeholder { color: rgba(239,237,231,0.4); }
-#access-code:focus { outline: none; border-color: var(--purple); }
-.lock-error { color: var(--red); font-size: 13px; margin-top: var(--s4); }
-
-/* ---------- Header ---------- */
+.wordmark-sm { font-size: 16px; }
 .site-header-dark {
   background: var(--near-black);
   padding: var(--s4) var(--s9);
@@ -261,5 +198,4 @@ p { margin: 0; }
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   .site-header-dark, .intro, .video-section, .archive { padding-left: var(--s5); padding-right: var(--s5); }
-  #lock-form { flex-direction: column; }
 }
