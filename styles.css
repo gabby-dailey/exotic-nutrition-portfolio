@@ -92,12 +92,6 @@ p { margin: 0; }
   padding: var(--s9) var(--s5) var(--s11);
   text-align: center;
 }
-.hero-caption {
-  margin-top: var(--s5);
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  color: rgba(239,237,231,0.45);
-}
 
 .video-stage {
   position: relative;

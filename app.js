@@ -140,7 +140,6 @@ function renderEpisode(episode) {
 
   document.getElementById('intro-personal').textContent = episode.intro.personal;
   document.getElementById('intro-watch').textContent = episode.intro.watch;
-  document.getElementById('hero-caption').textContent = episode.meta || '';
 
   document.querySelectorAll('.archive-item').forEach((el) => {
     el.classList.toggle('active', el.dataset.episodeId === episode.id);

@@ -10,7 +10,6 @@ module.exports = [
     id: 'ep4',
     label: 'Episode 4: No Days Off',
     current: true,
-    meta: 'Just under 40 seconds · Landscape',
     video: {
       type: 'file',
       src: '/videos/episode-4-no-days-off.mp4',
@@ -27,7 +26,6 @@ module.exports = [
     id: 'ep3',
     label: 'Episode 3: Back to the Wild',
     current: false,
-    meta: '45 seconds · Landscape',
     video: {
       type: 'youtube',
       youtubeId: process.env.YOUTUBE_ID_EP3 || '52xYHCzHlfE',
