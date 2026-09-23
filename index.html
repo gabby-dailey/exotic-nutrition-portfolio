@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Exotic Nutrition — Episode 3 Creative Review</title>
+<title>Exotic Nutrition: Creative Review</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css" />
@@ -22,7 +22,7 @@
       <input type="password" id="access-code" name="access-code" placeholder="Access code" autocomplete="off" />
       <button type="submit" class="btn-primary">Enter</button>
     </form>
-    <p id="lock-error" class="lock-error" hidden>That code didn't work — try again.</p>
+    <p id="lock-error" class="lock-error" hidden>That code didn't work, try again.</p>
   </div>
 </div>
 
@@ -43,18 +43,20 @@
   <section class="video-section">
     <div class="video-stage">
       <div class="video-panel" id="video-panel">
-        <div class="video-placeholder" id="video-placeholder">
-          <p>Video will appear here once it's uploaded.</p>
+        <div class="video-mount" id="video-mount">
+          <div class="video-placeholder">
+            <p>Video will appear here once it's uploaded.</p>
+          </div>
         </div>
-        <img class="video-poster" id="video-poster" alt="Episode 3 preview frame" hidden />
-        <button class="play-btn" id="play-btn" type="button" aria-label="Play video" hidden>
-          <svg viewBox="0 0 24 24" width="56" height="56"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
-        </button>
-        <div class="video-frame" id="video-frame" hidden></div>
       </div>
     </div>
 
-    <p class="hero-caption">45 seconds &middot; Landscape &middot; Unlisted on YouTube</p>
+    <p class="hero-caption" id="hero-caption"></p>
+  </section>
+
+  <section class="archive" id="archive-section" hidden>
+    <p class="eyebrow">Past Episodes</p>
+    <div class="archive-list" id="archive-list"></div>
   </section>
 
   <footer class="site-footer">

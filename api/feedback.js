@@ -17,8 +17,8 @@ module.exports = async (req, res) => {
 
   const subject =
     type === 'approved'
-      ? 'Exotic Nutrition — Episode 3 APPROVED'
-      : 'Exotic Nutrition — Episode 3 feedback notes';
+      ? 'Exotic Nutrition: Episode 3 APPROVED'
+      : 'Exotic Nutrition: Episode 3 feedback notes';
 
   const text =
     type === 'approved'
@@ -51,7 +51,7 @@ module.exports = async (req, res) => {
       console.error('Resend request failed:', err);
     }
   } else {
-    console.warn('RESEND_API_KEY not set — email not sent, feedback logged only.');
+    console.warn('RESEND_API_KEY not set, email not sent, feedback logged only.');
     console.log(`[feedback] type=${type} message=${message || ''}`);
   }
 
