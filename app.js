@@ -133,7 +133,15 @@ function renderEpisode(episode) {
     buildFileVideo(mount, episode.video.src);
   }
 
-  document.getElementById('intro-performance').textContent = episode.intro.performance;
+  const performanceEl = document.getElementById('intro-performance');
+  if (episode.intro.performance) {
+    performanceEl.textContent = episode.intro.performance;
+    performanceEl.hidden = false;
+  } else {
+    performanceEl.textContent = '';
+    performanceEl.hidden = true;
+  }
+
   document.getElementById('intro-personal').textContent = episode.intro.personal;
   document.getElementById('intro-watch').textContent = episode.intro.watch;
   document.getElementById('hero-caption').textContent = episode.meta || '';

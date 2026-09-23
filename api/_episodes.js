@@ -7,9 +7,26 @@
 
 module.exports = [
   {
+    id: 'ep4',
+    label: 'Episode 4: No Days Off',
+    current: true,
+    meta: 'Just under 40 seconds · Landscape',
+    video: {
+      type: 'file',
+      src: '/videos/episode-4-no-days-off.mp4',
+    },
+    intro: {
+      performance: null,
+      personal:
+        'This one might be the most fun we’ve had with this series yet! This episode’s guest is a hedgehog ‘fitness junkie’ who drops into sit-ups mid-sentence, dressed head to toe in 80s workout gear, then pops back up and picks up the conversation. It’s ridiculous, it’s genuinely funny, and it still lands the point: real energy comes from real food.',
+      watch:
+        'Sit back and watch our latest episode: No Days Off, a lesson in what real energy actually looks like.',
+    },
+  },
+  {
     id: 'ep3',
     label: 'Episode 3: Back to the Wild',
-    current: true,
+    current: false,
     meta: '45 seconds · Landscape',
     video: {
       type: 'youtube',
